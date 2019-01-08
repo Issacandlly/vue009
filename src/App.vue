@@ -38,7 +38,7 @@ export default {
 
 <style lang="less" scoped>
   .app-container {
-		overflow:hidden;
+		overflow-x:hidden;
 		padding-top:40px;
 		padding-bottom:50px;
 		

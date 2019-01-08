@@ -5,7 +5,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 //导入vue-resource
 import VueResource from 'vue-resource'
+//导入moment
+import moment from 'moment'
 
+Vue.filter("formonment",function(datastr,partten="YYYY-MM-DD HH:mm"){
+  return moment(datastr).format(partten)
+})
 //安装路由
 Vue.use( VueRouter)
 //安装vue-resource
