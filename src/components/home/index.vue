@@ -43,7 +43,7 @@ export default {
   methods:{
     getHomeContainer(){
       //获取轮播图数据
-      this.$http.get("http://www.lovegf.cn:8899/api/getlunbo").then(result=>{
+      this.$http.get("api/getlunbo").then(result=>{
         if(result.body.status==0){
           //console.log(result.body);
           this.lunbotulist=result.body.message;

@@ -1,7 +1,7 @@
 <template>
 <div>
  <ul class="mui-table-view" >
-    <li class="mui-table-view-cell mui-media" v-for="item in newsList" :key="item.id">
+    <router-link class="mui-table-view-cell mui-media" v-for="item in newsList" :key="item.id" :to="'/home/newsList/newsInfo/'+item.id">
         <a href="javascript:;">
             <img class="mui-media-object mui-pull-left" :src="item.img_url">
             <div class="mui-media-body">
@@ -12,7 +12,7 @@
                 </p>
             </div>
         </a>
-    </li>
+    </router-link>
   </ul>
 </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   },
   methods:{
     getNewsList(){
-      this.$http.get("http://www.lovegf.cn:8899/api/getnewslist").then(result=>{
+      this.$http.get("api/getnewslist").then(result=>{
         if(result.body.status==0){
         this.newsList=result.body.message;
         } else{

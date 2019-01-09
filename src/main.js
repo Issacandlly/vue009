@@ -15,12 +15,14 @@ Vue.filter("formonment",function(datastr,partten="YYYY-MM-DD HH:mm"){
 Vue.use( VueRouter)
 //安装vue-resource
 Vue.use(VueResource)
+//配置根路径
+Vue.http.options.root = 'http://www.lovegf.cn:8899/'
 //导入路由模块
 import router from './router'
 
 //导入app组件
 import app from './App';
-
+//Vue.http.options.root = '/http://www.lovegf.cn:8899'
 //按需导入mint-ui的的组件
 import {Header, Swipe, SwipeItem,} from 'mint-ui';
 Vue.component(Swipe.name, Swipe);
