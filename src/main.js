@@ -24,10 +24,11 @@ import router from './router'
 import app from './App';
 //Vue.http.options.root = '/http://www.lovegf.cn:8899'
 //按需导入mint-ui的的组件
-import {Header, Swipe, SwipeItem,} from 'mint-ui';
+import {Header, Swipe, SwipeItem,Button} from 'mint-ui';
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Header.name, Header);
+Vue.component(Button.name, Button);
 
 
 import "mint-ui/lib/style.css";

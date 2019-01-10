@@ -9,7 +9,7 @@
     <hr>
 
     <div class="content" v-html="newsInfo.content"></div>
-    <comment-box></comment-box>
+    <comment-box :parentid="this.id"></comment-box>
   </div>
   
 </template>
@@ -26,9 +26,9 @@ export default {
   },
   methods:{
       getNewsInfo(){
-        this.$http.get("api/getnew/" + this.$route.params.id).then(result=>{
+        this.$http.get("api/getnew/" + this.id).then(result=>{
           if(result.body.status==0){
-            this.newsInfo=result.body.message[0]; 
+            this.newsInfo=result.body.message[0];
           } else{
             Toast("fuck")
           }
