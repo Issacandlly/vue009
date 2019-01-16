@@ -9,7 +9,7 @@
     <hr>
 
     <div class="content" v-html="newsInfo.content"></div>
-    <comment-box :parentid="this.id"></comment-box>
+    <comment :id="this.id"></comment>
   </div>
   
 </template>
@@ -39,7 +39,7 @@ export default {
     this.getNewsInfo()
   },
   components:{
-    'comment-box':comment
+    comment
   }
   
 }

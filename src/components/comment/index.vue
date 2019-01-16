@@ -28,14 +28,12 @@ export default {
   },
   methods:{
     getCommentInfo(){
-      this.$http.get("api/getcomments/"+this.parentid +"?pageindex="+this.pageIndex).then(result=>{
+      this.$http.get("api/getcomments/"+this.id +"?pageindex="+this.pageIndex).then(result=>{
         if(result.body.status==0){
           //将两个数组拼接,+=是无效
-          this.commentInfo=this.commentInfo.concat(result.body.message);
-          console.log(this.pageIndex);    
+          this.commentInfo=this.commentInfo.concat(result.body.message);    
         } else{
           console.log("hello world")
-          console.log(this.pageIndex)
         }
       })
     },
@@ -45,11 +43,12 @@ export default {
     },
     uploadCmt(){
       if(this.msg.trim() !=''){
-        this.$http.post("api/postcomment/"+this.parentid,{content:this.msg},{emulateJSON:true}).then(result=>{
+        this.$http.post("api/postcomment/"+this.id,{content:this.msg},{emulateJSON:true}).then(result=>{
           if(result.body.status==0){
             let localmsg = {user_name:"匿名用户",add_time:Date.now(),content:this.msg};
             this.commentInfo.unshift(localmsg)
             this.getCommentInfo();
+            this.msg=""
           }
         })
       }
@@ -59,7 +58,7 @@ export default {
   created(){
     this.getCommentInfo()
   },
-  props:["parentid"]
+  props:["id"]
 }
 </script>
 <style lang="less" scoped>
